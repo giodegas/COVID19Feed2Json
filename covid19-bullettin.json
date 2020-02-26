@@ -1,0 +1,168 @@
+[
+    {
+        "titolo": "Coronavirus: 374 i casi accertati in Italia",
+        "aggiornamento_del": "Wed, 26 Feb 2020 11:44:00 GMT",
+        "casi_accerati": [
+            {
+                "Lombardia": 258
+            },
+            {
+                "Veneto": 71
+            },
+            {
+                "Emilia-Romagna": 30
+            },
+            {
+                "Piemonte": 3
+            },
+            {
+                "Lazio": 3
+            },
+            {
+                "Sicilia": 3
+            },
+            {
+                "Toscana": 2
+            },
+            {
+                "Liguria": 2
+            },
+            {
+                "Provincia autonoma di Bolzano": 1
+            },
+            {
+                "Marche": 1
+            }
+        ],
+        "ricoverati": 116,
+        "terapia_intensiva": 36,
+        "isolamento_domiciliare": 209,
+        "guariti": 1,
+        "deceduti": 12
+    },
+    {
+        "titolo": "Coronavirus: 322 i casi accertati in Italia",
+        "aggiornamento_del": "Tue, 25 Feb 2020 17:40:00 GMT",
+        "casi_accerati": [
+            {
+                "Lombardia": 240
+            },
+            {
+                "Veneto": 43
+            },
+            {
+                "Emilia-Romagna": 26
+            },
+            {
+                "Piemonte": 3
+            },
+            {
+                "Lazio": 3
+            },
+            {
+                "Sicilia": 3
+            },
+            {
+                "Toscana": 2
+            },
+            {
+                "Liguria": 1
+            },
+            {
+                "Provincia autonoma di Bolzano": 1
+            }
+        ],
+        "ricoverati": 114,
+        "terapia_intensiva": 35,
+        "isolamento_domiciliare": 162,
+        "guariti": 1,
+        "deceduti": 10
+    },
+    {
+        "titolo": "Coronavirus: 283 i casi accertati in Italia",
+        "aggiornamento_del": "Tue, 25 Feb 2020 11:42:00 GMT",
+        "casi_accerati": [
+            {
+                "Lombardia": 212
+            },
+            {
+                "Veneto": 38
+            },
+            {
+                "Emilia-Romagna": 23
+            },
+            {
+                "Piemonte": 3
+            },
+            {
+                "Lazio": 3
+            },
+            {
+                "Toscana": 2
+            },
+            {
+                "Sicilia": 1
+            },
+            {
+                "Provincia autonoma di Bolzano": 1
+            }
+        ],
+        "ricoverati": 109,
+        "terapia_intensiva": 29,
+        "isolamento_domiciliare": 137,
+        "guariti": 1,
+        "deceduti": 7
+    },
+    {
+        "titolo": "Coronavirus: 219 i casi accertati in Italia",
+        "aggiornamento_del": "Mon, 24 Feb 2020 11:45:00 GMT",
+        "casi_accerati": [
+            {
+                "Lombardia": 167
+            },
+            {
+                "Veneto": 27
+            },
+            {
+                "Emilia-Romagna": 18
+            },
+            {
+                "Piemonte": 4
+            },
+            {
+                "Lazio": 3
+            }
+        ],
+        "ricoverati": 99,
+        "terapia_intensiva": 23,
+        "isolamento_domiciliare": 91,
+        "guariti": 1,
+        "deceduti": 5
+    },
+    {
+        "titolo": "Coronavirus: 229 i casi accertati in Italia",
+        "aggiornamento_del": "Mon, 24 Feb 2020 18:49:00 GMT",
+        "casi_accerati": [
+            {
+                "Lombardia": 167
+            },
+            {
+                "Veneto": 32
+            },
+            {
+                "Emilia-Romagna": 18
+            },
+            {
+                "Piemonte": 3
+            },
+            {
+                "Lazio": 3
+            }
+        ],
+        "ricoverati": 101,
+        "terapia_intensiva": 27,
+        "isolamento_domiciliare": 94,
+        "guariti": 1,
+        "deceduti": 6
+    }
+]
