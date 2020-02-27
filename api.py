@@ -31,10 +31,10 @@ def retrieve_data():
                 'aggiornamento_del': post.published,
                 'link': post.link,
                 'casi_accertati': parseAccertati(desc),
-                'ricoverati': parseRicoverati(desc),
-                'terapia_intensiva':parseTerapiaIntensiva(desc),
-                'isolamento_domiciliare':parseIsolamentoDomiciliare(desc),
-                'guariti': parseGuariti(desc),
+                # 'ricoverati': parseRicoverati(desc),
+                # 'terapia_intensiva':parseTerapiaIntensiva(desc),
+                # 'isolamento_domiciliare':parseIsolamentoDomiciliare(desc),
+                # 'guariti': parseGuariti(desc),
                 # 'deceduti': parseDeceduti(desc)
             }
             data.append(dict)
