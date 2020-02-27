@@ -1,2 +1,2 @@
 # COVID19Feed2Json
-Script Python per la trasformare del bollettino della Protezione Civile sullo stato di diffusione del Coronavirus in Italia in un file JSON con dati strutturati e più facilmente utilizzabili
+Simple Python API to turn Civil Protection Department official COVID19 diffusion data in Italy from RSS Feed to JSON.
