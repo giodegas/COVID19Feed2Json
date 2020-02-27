@@ -47,7 +47,7 @@ def parseEsiti(desc):
 def parseGuariti(desc):
     import re
     esiti = desc.split('. ')[2]
-    num = re.findall(r'\d+',esiti.split(', ')[0].replace('Una','1'))
+    num = re.findall(r'\d+',esiti.split(', ')[0].replace('Una','1').replace('Due','2').replace('Tre','3'))
     return int(num[0])
 
 def parseDeceduti(desc):

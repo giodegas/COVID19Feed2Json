@@ -1,5 +1,43 @@
 [
     {
+        "titolo": "Coronavirus: 400 i casi accertati in Italia",
+        "aggiornamento_del": "Wed, 26 Feb 2020 17:00:00 GMT",
+        "casi_accerati": [
+            {
+                "Lombardia": 258
+            },
+            {
+                "Veneto": 71
+            },
+            {
+                "Emilia-Romagna": 47
+            },
+            {
+                "Liguria": 11
+            },
+            {
+                "Piemonte": 3
+            },
+            {
+                "Lazio": 3
+            },
+            {
+                "Sicilia": 3
+            },
+            {
+                "Toscana": 2
+            },
+            {
+                "Marche e 1 a Bolzano": 1
+            }
+        ],
+        "ricoverati": 128,
+        "terapia_intensiva": 36,
+        "isolamento_domiciliare": 221,
+        "guariti": 3,
+        "deceduti": 12
+    },
+    {
         "titolo": "Coronavirus: 374 i casi accertati in Italia",
         "aggiornamento_del": "Wed, 26 Feb 2020 11:44:00 GMT",
         "casi_accerati": [
