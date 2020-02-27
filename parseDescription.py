@@ -16,11 +16,6 @@ def parseAccertati(desc):
     
     #print(data)   
     return data
-'''
-def parsePazienti(desc):
-    pazienti = desc.split('. ')[1]
-    return pazienti.split(', ')
-'''
 
 def parseRicoverati(desc):
     import re
@@ -39,12 +34,6 @@ def parseIsolamentoDomiciliare(desc):
     pazienti = desc.split('. ')[1]
     num = re.findall(r'\d+',pazienti.split(', ')[2])
     return int(num[0])
-    
-'''
-def parseEsiti(desc):
-    esiti = desc.split('. ')[2]
-    return esiti.split(', ')
-'''
 
 def parseGuariti(desc):
     from word2number import w2n
@@ -60,7 +49,6 @@ def parseGuariti(desc):
 
     num_guariti = w2n.word_to_num(word_num_en)
     return num_guariti
-
 
 def parseDeceduti(desc):
     import re

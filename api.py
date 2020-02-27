@@ -41,4 +41,5 @@ def retrieve_data():
     # JSON output
     return jsonify(data)
 
-app.run(host='127.0.0.1', debug=True)
+if __name__ == '__main__':
+    app.run()
