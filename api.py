@@ -29,6 +29,7 @@ def retrieve_data():
             dict = {
                 'titolo': post.title,
                 'aggiornamento_del': post.published,
+                'link': post.link,
                 'casi_accerati': parseAccertati(desc),
                 'ricoverati': parseRicoverati(desc),
                 'terapia_intensiva':parseTerapiaIntensiva(desc),
