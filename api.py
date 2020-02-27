@@ -35,7 +35,7 @@ def retrieve_data():
                 'terapia_intensiva':parseTerapiaIntensiva(desc),
                 'isolamento_domiciliare':parseIsolamentoDomiciliare(desc),
                 'guariti': parseGuariti(desc),
-                'deceduti': parseDeceduti(desc)
+                # 'deceduti': parseDeceduti(desc)
             }
             data.append(dict)
 
