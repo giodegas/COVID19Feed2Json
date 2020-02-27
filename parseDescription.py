@@ -39,16 +39,28 @@ def parseIsolamentoDomiciliare(desc):
     pazienti = desc.split('. ')[1]
     num = re.findall(r'\d+',pazienti.split(', ')[2])
     return int(num[0])
-
+    
+'''
 def parseEsiti(desc):
     esiti = desc.split('. ')[2]
     return esiti.split(', ')
+'''
 
 def parseGuariti(desc):
-    import re
+    from word2number import w2n
+    from googletrans import Translator
     esiti = desc.split('. ')[2]
-    num = re.findall(r'\d+',esiti.split(', ')[0].replace('Una','1').replace('Due','2').replace('Tre','3'))
-    return int(num[0])
+    guariti = esiti.split(', ')[0]
+    word_num = guariti.split(' ')[0]
+    if word_num == 'Una':
+        word_num_en = 'One'
+    else: 
+        translator = Translator()
+        word_num_en = translator.translate(word_num, src='it', dest='en').text
+
+    num_guariti = w2n.word_to_num(word_num_en)
+    return num_guariti
+
 
 def parseDeceduti(desc):
     import re
