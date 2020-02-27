@@ -2,7 +2,7 @@ def parseAccertati(desc):
     accertati = desc.split('. ')[0]
     casi = []
     for caso in accertati.replace('ed',',').split(', '):
-        casi.append(caso.replace('i casi accertati di Coronavirus in ','').replace(' sono',':').replace(' in ',': ').replace(' nel ',': ').replace(' nella ',': ').replace(' nelle ',': ').replace(' e ','').replace(' a ',': ').replace('uno','1').replace('una','1').strip() )
+        casi.append(caso.replace('i casi accertati di Coronavirus in ','').replace(' sono',':').replace(' in ',': ').replace(' nel ',': ').replace(' nella ',': ').replace(' nelle ',': ').replace(' e ',', ').replace(' a ',': ').replace('uno','1').replace('una','1').strip() )
     
     data = []
     for i,val in enumerate(casi):
