@@ -17,7 +17,7 @@ def retrieve_data():
     # News con i dettagli sui casi accertati
     data = []
     for post in feed.entries:
-        if "casi accertati" in post.title:
+        if "casi accertati" in post.title or "i contagiati" in post.title:
             # Estrazione dati dal link nel feed
             resp = requests.get(post.link)
             tree = html.fromstring(resp.content)
@@ -41,6 +41,12 @@ def retrieve_data():
 
     # JSON output
     return jsonify(data)
+
+@app.route('/data/it')
+def scrape_min_sal():
+    # Sito Ministero
+    url = 'http://www.protezionecivile.gov.it/web/guest/dettaglio/-/journal/rss/351561?doAsGroupId=20182&refererPlid=42041&controlPanelCategory=current_site.content&_15_groupId=20182'
+    return jsonify({'Fonte':'Ministero della Salute'})
 
 if __name__ == '__main__':
     app.run()
