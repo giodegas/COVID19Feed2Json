@@ -1,4 +1,5 @@
 def parseAccertati(desc):
+    import geocoder
     accertati = desc.split('. ')[0]
     casi = []
     for caso in accertati.replace(' ed',',').replace(' e',',').split(', '):
@@ -7,12 +8,17 @@ def parseAccertati(desc):
     for i,val in enumerate(casi):
         if i > 0:
             # print(val.split(': ')[::-1])
-            dict = { val.split(': ')[::-1][0] :  int(val.split(': ')[::-1][1]) }
+            location_name = val.split(': ')[::-1][0]
+            case_count = int(val.split(': ')[::-1][1])
         else: 
             # print(val.split(': '))
-            dict = { val.split(': ')[::-1][1] : int(val.split(': ')[::-1][0]) }   
+            location_name = val.split(': ')[::-1][1]
+            case_count = int(val.split(': ')[::-1][0])
+        # Geocode
+        g = geocoder.arcgis(location_name+", Italy")
+        latlng = g.json['raw']['feature']['geometry']
+        dict = { location_name : case_count, 'lat': latlng['y'], 'lng': latlng['x'] }
         data.append(dict)
-    
     #print(data)   
     return data
 
