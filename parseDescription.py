@@ -48,6 +48,18 @@ def geocodeRegione(regione):
         coordinates = [16.618785484000057,40.98504106300004]
     elif regione.find('Bolzano'):
         coordinates = [11.121170080500887,46.072160043857124]
+    elif regione == 'Molise':
+        coordinates = [13.9908318,41.7155352]
+    elif regione == 'Basilicata':
+        coordinates = [14.9799563,40.5119449]
+    elif regione == 'Umbria':
+        coordinates = [11.4568454,42.9854269]
+    elif regione == 'Sardegna':
+        coordinates = [7.8576966,40.0562185]
+    elif regione.find('Friuli'):
+        coordinates = [12.5594548,46.1129993]
+    elif regione.finde('Aosta'):
+        coordinates = [6.8099952,45.7259823]
     else:
         coordinates = [13.6614,41.9186]
 
