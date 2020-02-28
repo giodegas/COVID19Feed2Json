@@ -63,7 +63,7 @@ def geocodeRegione(regione):
     elif regione.find('Trentino'):
         coordinates = [10.6469911,46.1015475]
     elif regione == 'Calabria':
-        coordinates = [15.2970131,39.0266114]
+        coordinates = [16.446533203125,38.976492485539396]
     else:
         coordinates = [13.6614,41.9186]
 
