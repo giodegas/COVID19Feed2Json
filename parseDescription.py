@@ -22,7 +22,7 @@ def parseAccertati(desc):
 
 def geocodeRegione(regione):
     coordinates = ""
-    if regione == 'Lombaria':
+    if regione == 'Lombardia':
         coordinates = [9.227828979492188,45.57463894211682]
     elif regione == 'Veneto':
         coordinates = [11.854319842000052,45.65492501300008]
@@ -48,6 +48,8 @@ def geocodeRegione(regione):
         coordinates = [16.618785484000057,40.98504106300004]
     elif regione.find('Bolzano'):
         coordinates = [11.121170080500887,46.072160043857124]
+    else:
+        coordinates = [13.6614,41.9186]
 
     return coordinates
 
