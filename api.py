@@ -42,11 +42,25 @@ def retrieve_data():
     # JSON output
     return jsonify(data)
 
+# TO-DO
+'''
 @app.route('/data/it')
 def scrape_min_sal():
     # Sito Ministero
-    url = 'http://www.protezionecivile.gov.it/web/guest/dettaglio/-/journal/rss/351561?doAsGroupId=20182&refererPlid=42041&controlPanelCategory=current_site.content&_15_groupId=20182'
-    return jsonify({'Fonte':'Ministero della Salute'})
+    url = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5351&area=nuovoCoronavirus&menu=vuoto'
+    resp = requests.get(url)
+    tree = html.fromstring(resp.content)
+    main = tree.xpath("//div[@id='intestazioneContenuto']")
+    title = tree.xpath("//h4[@class='blu-italia-base-color']//text()")
+    
+    return jsonify({
+        'titolo': title[0].strip(),
+        'positivi':'',
+        'deceduti':'',
+        'guariti':'',
+        'fonte': url
+    })
+'''
 
 if __name__ == '__main__':
     app.run()
