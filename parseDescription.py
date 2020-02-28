@@ -60,8 +60,10 @@ def geocodeRegione(regione):
         coordinates = [12.5594548,46.1129993]
     elif regione.find('Aosta'):
         coordinates = [6.8099952,45.7259823]
-    elif regione == 'Trentino':
+    elif regione.find('Trentino'):
         coordinates = [10.6469911,46.1015475]
+    elif regione == 'Calabria':
+        coordinates = [15.2970131,39.0266114]
     else:
         coordinates = [13.6614,41.9186]
 
