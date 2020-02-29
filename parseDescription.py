@@ -1,5 +1,7 @@
 def parseAccertati(desc):
+    import re
     accertati = desc.split('. ')[0]
+    
     casi = []
     for caso in accertati.replace(' ed',',').replace(' e',',').split(', '):
         casi.append(caso.replace('i casi accertati di Coronavirus in ','').replace(' sono',':').replace(' in ',': ').replace(' nel ',': ').replace(' nella ',': ').replace(' nelle ',': ').replace(' a ',': ').replace('uno','1').replace('una','1').strip() )
@@ -17,7 +19,7 @@ def parseAccertati(desc):
         coords = geocodeRegione(location_name)
         dict = { "type":"Feature", "properties": {"regione": location_name, "casi": case_count}, "geometry": {"type":"Point", "coordinates":  coords }}
         data.append(dict)
-    print(data)   
+    # print(data)   
     return data
 
 def geocodeRegione(regione):

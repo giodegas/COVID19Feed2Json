@@ -2,7 +2,7 @@ import feedparser
 import requests
 from lxml import html
 import json
-from parseDescription import *
+from parseDescription import parseAccertati
 from flask import Flask, jsonify
 from flask_cors import CORS
 
@@ -16,15 +16,18 @@ def retrieve_data():
     feed = feedparser.parse(url)
     # News con i dettagli sui casi accertati
     data = []
+    titles = ['i casi accertati', 'i casi', 'i contagiati', 'i positivi']
     for post in feed.entries:
-        if "casi accertati" in post.title or "i contagiati" in post.title or "i positivi" in post.title:
+        #if "casi accertati" in post.title or "i contagiati" in post.title:
+        if any(x in post.title for x in titles):
             # Estrazione dati dal link nel feed
             resp = requests.get(post.link)
             tree = html.fromstring(resp.content)
             main = tree.xpath("//div[@class='top-content-body']//p/text()")
             subs = 'Nel dettaglio:'
             info = [i for i in main if subs in i]
-            desc = info[0].replace('Nel dettaglio: ','').replace(' Nel dettaglio:','')
+            # Seleziona come descrizione la parte della string successiva allo split 'Nel dettaglio:'
+            desc = info[0].split('Nel dettaglio:')[1].strip()
             # Organizzazione dei dati del bollettino in un dizionario
             dict = {
                 'titolo': post.title,
