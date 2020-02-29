@@ -30,7 +30,7 @@ def retrieve_data():
                 'titolo': post.title,
                 'aggiornamento_del': post.published,
                 'link': post.link,
-                'casi_accertati': parseAccertati(desc),
+                'casi_accertati': parseAccertati(desc)
                 # 'ricoverati': parseRicoverati(desc),
                 # 'isolamento_domiciliare':parseIsolamentoDomiciliare(desc),
                 # 'guariti': parseGuariti(desc),
