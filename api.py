@@ -32,7 +32,6 @@ def retrieve_data():
                 'link': post.link,
                 'casi_accertati': parseAccertati(desc),
                 # 'ricoverati': parseRicoverati(desc),
-                # 'terapia_intensiva':parseTerapiaIntensiva(desc),
                 # 'isolamento_domiciliare':parseIsolamentoDomiciliare(desc),
                 # 'guariti': parseGuariti(desc),
                 # 'deceduti': parseDeceduti(desc)
