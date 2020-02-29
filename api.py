@@ -17,7 +17,7 @@ def retrieve_data():
     # News con i dettagli sui casi accertati
     data = []
     for post in feed.entries:
-        if "casi accertati" in post.title or "i contagiati" in post.title or "i contagiati" in post.title:
+        if "casi accertati" in post.title or "i contagiati" in post.title or "i positivi" in post.title:
             # Estrazione dati dal link nel feed
             resp = requests.get(post.link)
             tree = html.fromstring(resp.content)
