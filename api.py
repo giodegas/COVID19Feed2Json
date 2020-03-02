@@ -23,11 +23,15 @@ def retrieve_data():
             # Estrazione dati dal link nel feed
             resp = requests.get(post.link)
             tree = html.fromstring(resp.content)
-            main = tree.xpath("//div[@class='top-content-body']//p/text()")
             subs = 'Nel dettaglio:'
-            info = [i for i in main if subs in i]
-            # Seleziona come descrizione la parte della string successiva allo split 'Nel dettaglio:'
-            desc = info[0].split('Nel dettaglio:')[1].strip()
+            main = tree.xpath("//div[@class='top-content-body']//text()")
+            info = [i for i in main]
+            if len(info) == 0:
+                main = tree.xpath("//div[@class='top-content-body']//p/text()")
+                info = [i for i in main]
+
+            details = [d for d in info if subs in d]
+            desc = details[0].split('Nel dettaglio:')[1].strip()
             # Organizzazione dei dati del bollettino in un dizionario
             dict = {
                 'titolo': post.title,
