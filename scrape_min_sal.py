@@ -1,0 +1,59 @@
+import requests
+from lxml import html
+import re
+import csv
+import pandas as pd
+from geocodifica import geocodeRegione
+from estrazione_data import formatDate
+from salva_storico import saveSummary, saveTreatments, saveRegions
+
+# ORIGINE: MINISTERO DELLA SALUTE
+# ############################################################################
+url = "http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5351&area=nuovoCoronavirus&menu=vuoto"
+resp = requests.get(url)
+tree = html.fromstring(resp.content)
+
+# TITOLO
+# ############################################################################
+titolo = tree.xpath("//h4[@class='blu-italia-base-color']//text()")[0].strip()
+print(titolo)
+
+# DATA DI AGGIORNAMENTO
+# ############################################################################
+data = formatDate(titolo)
+
+# POSITIVI, DECEDUTI, GUARITI, CASI
+# ############################################################################
+positivi = tree.xpath('.//div/span[contains(text(),"POSITIVI")]/following::div[1]/text()')[0].strip()
+deceduti = tree.xpath('.//div/span[contains(text(),"DECEDUTI")]/following::div[1]/text()')[0].strip()
+guariti  = tree.xpath('.//div/span[contains(text(),"GUARITI")]/following::div[1]/text()')[0].strip()
+tot_casi = int(positivi)+int(deceduti)+int(guariti)
+# Salvataggio nello storico
+saveSummary(data, positivi, deceduti, guariti, tot_casi)
+
+# POSITIVI IN ISOLAMENTO DOMICILIARE, RICOVERATI CON SINTOMI, TERAPIA INTENSIVA
+# ############################################################################
+isolamento_domiciliare = tree.xpath('.//h3[contains(text(),"Covid-19 - Situazione in Italia")]/following::p[2]/following::ul[2]/li[contains(text(),"isolamento domiciliare")]/text()')
+ricoverati_con_sintomi = tree.xpath('.//h3[contains(text(),"Covid-19 - Situazione in Italia")]/following::p[2]/following::ul[2]/li[contains(text(),"ricoverati con sintomi")]/text()')
+terapia_intensiva = tree.xpath('.//h3[contains(text(),"Covid-19 - Situazione in Italia")]/following::p[2]/following::ul[2]/li[contains(text(),"terapia intensiva")]/text()')
+
+num_isolamento = int(re.findall(r'\d+', isolamento_domiciliare[0].strip())[0])
+num_ricoverati = int(re.findall(r'\d+', ricoverati_con_sintomi[0].strip())[0])
+num_tintensiva = int(re.findall(r'\d+', terapia_intensiva[0].strip())[0])
+# Salvataggio nello storico
+saveTreatments(data, num_isolamento, num_ricoverati, num_tintensiva)
+
+# DATI REGIONE PER REGIONE
+# ############################################################################
+regioni = tree.xpath("//div/p/strong[.='Regioni']/following::ul[1]/li//text()")
+for regione in regioni:
+    # data_aggiornamento = titolo.split(":")[1].strip()
+    aggiornamento = str(data)
+    numero_casi = re.findall(r'\d+',regione)[0]
+    nome_regione = regione.strip().replace(numero_casi,'').replace('.','')
+    coordinates = geocodeRegione(nome_regione)
+    lng = str(coordinates[0])
+    lat = str(coordinates[1])
+    #print('aggiornamento;numero_casi;nome_regione;lng;lat;')
+    print(aggiornamento+","+numero_casi+","+nome_regione+","+lng+","+lat)
+    
