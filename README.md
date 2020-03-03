@@ -4,7 +4,8 @@ Python API to returning Civil Protection Department and Italian Ministry of Heal
 ## API END POINTS
 
 #### https://covid19-it-api.herokuapp.com/data
-Returns **GeoJSON** data from live web scraping of the source. This is no more updated 
+Returns **GeoJSON** data from live web scraping of the <a target="_blank" href="http://www.protezionecivile.gov.it/web/guest/dettaglio/-/journal/rss/351561?doAsGroupId=20182&refererPlid=42041&controlPanelCategory=current_site.content&_15_groupId=20182">DPC RSS</a> source. 
+This source in particular is no more updated 
 
 #### https://covid19-it-api.herokuapp.com/summary
 Returns **JSON** daily data about total infected people, positive, deads, recovered.
