@@ -46,14 +46,20 @@ saveTreatments(data, num_isolamento, num_ricoverati, num_tintensiva)
 # DATI REGIONE PER REGIONE
 # ############################################################################
 regioni = tree.xpath("//div/p/strong[.='Regioni']/following::ul[1]/li//text()")
+list_regioni = []
+df = pd.read_csv('storico/regioni.csv')
 for regione in regioni:
     # data_aggiornamento = titolo.split(":")[1].strip()
     aggiornamento = str(data)
-    numero_casi = re.findall(r'\d+',regione)[0]
-    nome_regione = regione.strip().replace(numero_casi,'').replace('.','')
+    num_casi = re.findall(r'\d+',regione)[0]
+    nome_regione = regione.strip().replace(num_casi,'').replace('.','')
     coordinates = geocodeRegione(nome_regione)
     lng = str(coordinates[0])
     lat = str(coordinates[1])
-    #print('aggiornamento;numero_casi;nome_regione;lng;lat;')
-    print(aggiornamento+","+numero_casi+","+nome_regione+","+lng+","+lat)
+    #print('aggiornamento;num_casi;nome_regione;lng;lat;')
+    #print(aggiornamento+","+num_casi+","+nome_regione+","+lng+","+lat)
+    list_regioni.append(pd.Series([aggiornamento, num_casi, nome_regione, lng, lat], index=df.columns ))
+# Salvataggio nello storico
+saveRegions(list_regioni,data)
+
     
