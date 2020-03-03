@@ -6,6 +6,8 @@ from parseDescription import parseAccertati
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pandas as pd
+import os, sys
+script_path = os.path.dirname(sys.argv[0])
 
 app = Flask(__name__)
 CORS(app)

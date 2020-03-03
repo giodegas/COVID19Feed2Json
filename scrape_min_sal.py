@@ -6,6 +6,14 @@ import pandas as pd
 from geocodifica import geocodeRegione
 from estrazione_data import formatDate
 from salva_storico import saveSummary, saveTreatments, saveRegions
+import os, sys
+
+# PATH
+script_path = os.path.dirname(sys.argv[0])
+storico_path = os.path.join(script_path,'storico')
+csv_summary = os.path.join(storico_path,'summary.csv')
+csv_trattamento = os.path.join(storico_path,'trattamento.csv')
+csv_regioni = os.path.join(storico_path,'regioni.csv')
 
 # ORIGINE: MINISTERO DELLA SALUTE
 # ############################################################################
@@ -29,7 +37,7 @@ deceduti = tree.xpath('.//div/span[contains(text(),"DECEDUTI")]/following::div[1
 guariti  = tree.xpath('.//div/span[contains(text(),"GUARITI")]/following::div[1]/text()')[0].strip()
 tot_casi = int(positivi)+int(deceduti)+int(guariti)
 # Salvataggio nello storico
-saveSummary(data, positivi, deceduti, guariti, tot_casi)
+saveSummary(data, positivi, deceduti, guariti, tot_casi, csv_summary)
 
 # POSITIVI IN ISOLAMENTO DOMICILIARE, RICOVERATI CON SINTOMI, TERAPIA INTENSIVA
 # ############################################################################
@@ -41,13 +49,13 @@ num_isolamento = int(re.findall(r'\d+', isolamento_domiciliare[0].strip())[0])
 num_ricoverati = int(re.findall(r'\d+', ricoverati_con_sintomi[0].strip())[0])
 num_tintensiva = int(re.findall(r'\d+', terapia_intensiva[0].strip())[0])
 # Salvataggio nello storico
-saveTreatments(data, num_isolamento, num_ricoverati, num_tintensiva)
+saveTreatments(data, num_isolamento, num_ricoverati, num_tintensiva, csv_trattamento)
 
 # DATI REGIONE PER REGIONE
 # ############################################################################
 regioni = tree.xpath("//div/p/strong[.='Regioni']/following::ul[1]/li//text()")
 list_regioni = []
-df = pd.read_csv('storico/regioni.csv')
+df = pd.read_csv(csv_regioni)
 for regione in regioni:
     # data_aggiornamento = titolo.split(":")[1].strip()
     aggiornamento = str(data)
@@ -60,6 +68,6 @@ for regione in regioni:
     #print(aggiornamento+","+num_casi+","+nome_regione+","+lng+","+lat)
     list_regioni.append(pd.Series([aggiornamento, num_casi, nome_regione, lng, lat], index=df.columns ))
 # Salvataggio nello storico
-saveRegions(list_regioni,data)
+saveRegions(list_regioni,data,csv_regioni)
 
     
