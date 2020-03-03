@@ -46,10 +46,6 @@ def retrieve_data():
                 'aggiornamento_del': post.published,
                 'link': post.link,
                 'casi_accertati': parseAccertati(desc)
-                # 'ricoverati': parseRicoverati(desc),
-                # 'isolamento_domiciliare':parseIsolamentoDomiciliare(desc),
-                # 'guariti': parseGuariti(desc),
-                # 'deceduti': parseDeceduti(desc)
             }
             data.append(dict)
     # JSON output
