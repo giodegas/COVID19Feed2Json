@@ -25,7 +25,7 @@ for post in feed.entries:
         # print(details)
         desc = details[0].split('Nel dettaglio:')[1].strip()
 
-        print(desc)
+        print(post.link)
 
         '''
         # Seleziona come descrizione la parte della string successiva allo split 'Nel dettaglio:'
