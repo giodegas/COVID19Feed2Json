@@ -32,10 +32,10 @@ def geocodeRegione(regione):
     elif reg == 'Umbria':
         coordinates = [12.436523437499998,43.13306116240612]
     elif reg == 'Sardegna':
-        coordinates = [7.8576966,40.0562185]
+        coordinates = [9.0128926,40.1208752]
     elif reg == 'Friuli Venezia Giulia':
         coordinates = [12.5594548,46.1129993]
-    elif reg == 'Trentino':
+    elif reg == 'Provincia autonoma di Trento':
         coordinates = [10.6469911,46.1015475]
     elif reg == 'Calabria':
         coordinates = [16.446533203125,38.976492485539396]
